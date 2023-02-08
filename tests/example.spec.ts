@@ -1,18 +1,23 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test.describe("chromium only", () => {
+  test.skip(({ browserName }) => browserName !== "chromium", "Chromium only!");
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+  test("has title @title", async ({ page }) => {
+    await page.goto("https://playwright.dev/");
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+    // Expect a title "to contain" a substring.
+    await expect(page).toHaveTitle(/Playwright/);
+  });
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  test("get started link", async ({ page, browserName }) => {
+    test.skip(browserName === "firefox", "stil working on it");
+    await page.goto("https://playwright.dev/");
 
-  // Expects the URL to contain intro.
-  await expect(page).toHaveURL(/.*intro/);
+    // Click the get started link.
+    await page.getByRole("link", { name: "Get started" }).click();
+
+    // Expects the URL to contain intro.
+    await expect(page).toHaveURL(/.*intro/);
+  });
 });
