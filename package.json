@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "report": "npx playwright test --reporter=html && npx playwright show-report",
+    "alluretest": "npx playwright test --reporter=line,allure-playwright",
+    "alluregenerate": "npx allure generate ./allure-results --clean",
+    "allureopen": "npx allure open ./allure-report",
     "debug": "npx playwright test --debug",
     "test": "npx playwright test"
   },
@@ -12,6 +15,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.30.0"
+    "@playwright/test": "^1.30.0",
+    "allure-commandline": "^2.20.1",
+    "allure-playwright": "^2.0.0-beta.26"
   }
 }
