@@ -9,42 +9,35 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup node
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
-
       - name: Install dependencies
         run: npm ci
-
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-
       - name: Run Playwright tests
         run: npm run allure:test
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@master
         with:
           name: allure-results
           path: allure-results
           retention-days: 20
 
       - name: Get Allure history
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         if: always()
         continue-on-error: true
         with:
-          ref: allure-reports
-          path: allure-reports
+          ref: allure-playwright
+          path: allure-playwright
 
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: allure-reports
+          PUBLISH_BRANCH: allure-playwright
           PUBLISH_DIR: allure-history
