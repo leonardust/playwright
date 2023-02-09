@@ -27,17 +27,17 @@ jobs:
           retention-days: 20
 
       - name: Get Allure history
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         if: always()
         continue-on-error: true
         with:
-          ref: allure-playwright
-          path: allure-playwright
+          ref: allure-reports
+          path: allure-reports
 
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: allure-playwright
+          PUBLISH_BRANCH: allure-reports
           PUBLISH_DIR: allure-history
