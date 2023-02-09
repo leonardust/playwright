@@ -9,18 +9,25 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
           node-version: 16
+
       - name: Install dependencies
         run: npm ci
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
       - name: Run Playwright tests
         run: npm run allure:test
 
-      - uses: actions/upload-artifact@master
+      - name: Upload artifacts
+        uses: actions/upload-artifact@allure-playwright
         with:
           name: allure-results
           path: allure-results
