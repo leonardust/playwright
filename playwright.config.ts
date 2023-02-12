@@ -39,7 +39,7 @@ export default defineConfig({
 
     /* Authorization */
     extraHTTPHeaders: {
-      Authorization: "Basic YWRtaW46b1chTEY0LWtNcDF2",
+      Authorization: "${{ secrets.SERVICE_NOW_BASIC_TOKEN }}",
     },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
