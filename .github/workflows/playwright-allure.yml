@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright Tests Allure
 on:
   push:
     branches: [main, master]
@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Setup node
