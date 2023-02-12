@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Feb 12 08:37:22 GMT 2023","Sun Feb 12 08:37:23 GMT 2023","675","","service-now.test.ts","Create and get new Incident","","","Update an Incident",""
+"passed","Sun Feb 12 08:37:20 GMT 2023","Sun Feb 12 08:37:21 GMT 2023","841","","service-now.test.ts","Create and get new Incident","","","Create an Incident",""
+"passed","Sun Feb 12 08:37:24 GMT 2023","Sun Feb 12 08:37:25 GMT 2023","1640","","service-now.test.ts","Create and get new Incident","","","Delete an Incident",""
+"passed","Sun Feb 12 08:37:21 GMT 2023","Sun Feb 12 08:37:22 GMT 2023","1144","","service-now.test.ts","Create and get new Incident","","","Get an Incident",""
+"passed","Sun Feb 12 08:37:23 GMT 2023","Sun Feb 12 08:37:24 GMT 2023","530","","service-now.test.ts","Create and get new Incident","","","Get updated Incident",""
