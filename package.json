@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "npx playwright test",
     "report": "npx playwright test --reporter=html && npx playwright show-report",
-    "test:allure": "npx playwright test --reporter=line,allure-playwright",
-    "results:allure": "npx allure generate ./allure-results --clean",
-    "report:allure": "npx allure open ./allure-report",
     "debug": "npx playwright test --debug",
-    "test": "npx playwright test"
+    "tests:allure": "npx playwright test --reporter=line,allure-playwright",
+    "results:allure": "npx allure generate ./allure-results --clean",
+    "report:allure": "npx allure open ./allure-report"
   },
   "keywords": [],
   "author": "",
